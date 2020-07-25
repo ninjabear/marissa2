@@ -22,7 +22,7 @@ class Marissa(val token: String, logger: Logger, brains: (Message) => Unit) {
       .on(classOf[MessageCreateEvent])
       .subscribe((m: MessageCreateEvent) => {
         logger.debug(m.toString)
-        if (m.getMessage.getContent.isPresent) {
+        if (m.getMessage.getContent.isPresent && m.getMessage.getAuthor.isPresent && m.getMessage.getAuthor.get().isBot != true) {
           val message = m.getMessage.getContent.get()
           brains(
             Message(
@@ -50,8 +50,13 @@ class Marissa(val token: String, logger: Logger, brains: (Message) => Unit) {
 
 object Marissa {
 
-  def apply(token: String)(implicit logger: Logger): Unit = {
-    new Marissa(token, logger, (m) => logger.debug(m.toString)).awake()
+  def apply(token: String, version: Option[String])(implicit logger: Logger): Unit = {
+    new Marissa(token, logger, (m) => {
+      logger.debug(m.toString)
+      if (m.message.contains("!ping")) {
+        m.reply("pong")
+      }
+    }).awake()
   }
 
 }

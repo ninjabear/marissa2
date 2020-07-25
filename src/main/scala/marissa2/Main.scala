@@ -10,7 +10,9 @@ object Main extends App {
     logger.warn("DISCORD_BOT_TOKEN is empty!")
   }
 
+  val version = sys.env.get("BUILD_COMMIT")
+
   logger.info("marrisa2 awake")
-  Marissa(token)
+  Marissa(token, version)
   logger.info("marissa2 lights off")
 }
