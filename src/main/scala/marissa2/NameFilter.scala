@@ -9,8 +9,8 @@ object NameFilter {
   val name: Regex = """(?i)^marissa""".r
 
   def apply(message: (Message => Unit)): (Message) => Unit = (m) => {
-    name.findFirstMatchIn(m.message) match {
-      case Some(name) => message(m.copy(message = m.message.replaceFirst(name+" ","").replaceFirst("\\s+","")))
+    name.findFirstMatchIn(m.contents) match {
+      case Some(name) => message(m.copy(contents = m.contents.replaceFirst(name+" ","").replaceFirst("\\s+","")))
       case None => ()
     }
   }

@@ -8,7 +8,7 @@ class NameFilterSpec extends BaseSpec {
   val filterName: String = "marissa"
 
   private def withName(s: String) = s"$filterName $s"
-  private def withMessageTransformed(m: Message, t:(String)=>String) = m.copy(message = t(m.message))
+  private def withMessageTransformed(m: Message, t:(String)=>String) = m.copy(contents = t(m.contents))
   private def withName(m: Message): Message = withMessageTransformed(m, withName)
   private def noReply = (_:String) => ()
 
