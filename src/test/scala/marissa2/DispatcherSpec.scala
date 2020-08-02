@@ -2,6 +2,7 @@ package marissa2
 
 import com.typesafe.scalalogging.Logger
 import helpers.BaseSpec
+import marissa2.models.Message
 
 import scala.concurrent.{Await, Future}
 import scala.concurrent.duration._

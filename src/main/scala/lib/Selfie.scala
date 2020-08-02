@@ -1,6 +1,7 @@
 package lib
 
-import marissa2.Message
+import marissa2.models.Message
+
 import scala.util.Random
 
 object Selfie {

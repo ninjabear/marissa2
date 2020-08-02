@@ -1,6 +1,7 @@
 package marissa2
 
 import com.typesafe.scalalogging.Logger
+import marissa2.models.Message
 
 import scala.concurrent.Future
 

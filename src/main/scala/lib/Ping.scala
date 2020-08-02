@@ -1,6 +1,6 @@
 package lib
 
-import marissa2.Message
+import marissa2.models.Message
 
 object Ping {
 

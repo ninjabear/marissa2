@@ -1,4 +1,4 @@
-package marissa2
+package marissa2.models
 
 case class Message(from: Option[String],
                    message: String,

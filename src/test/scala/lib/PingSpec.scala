@@ -1,7 +1,7 @@
 package lib
 
 import helpers.BaseSpec
-import marissa2.Message
+import marissa2.models.Message
 
 class PingSpec extends BaseSpec {
 

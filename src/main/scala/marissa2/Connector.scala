@@ -4,6 +4,7 @@ import com.typesafe.scalalogging.Logger
 import discord4j.core.DiscordClient
 import discord4j.core.event.domain.lifecycle.ReadyEvent
 import discord4j.core.event.domain.message.MessageCreateEvent
+import marissa2.models.Message
 
 import scala.concurrent.Future
 
