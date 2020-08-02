@@ -13,7 +13,7 @@ object Main extends App {
 
   val version = sys.env.get("BUILD_COMMIT")
 
-  logger.info("marrisa2 awake")
+  logger.info(s"marrisa2 awake [$version]")
 
   Connector.connectAndBlock(
     token,
