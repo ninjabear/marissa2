@@ -19,12 +19,10 @@ object Selfie {
 
   def randomSelfieUrl(): String = selfies(Random.nextInt(selfies.length))
 
-  def selfie(m: Message, selfie: () => String = randomSelfieUrl): Unit = {
+  def selfie(m: Message, getSelfie: () => String = randomSelfieUrl): Unit = {
     if (m.message.contains(matchText))
-      m.reply(selfie())
+      m.reply(getSelfie())
   }
-
-  def selfie: Message => Unit = (m:Message) => Selfie.selfie(m)
 
 }
 

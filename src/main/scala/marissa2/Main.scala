@@ -1,7 +1,7 @@
 package marissa2
 
 import com.typesafe.scalalogging.Logger
-import lib.Selfie
+import lib.{Ping, Selfie}
 
 object Main extends App {
   implicit val logger: Logger = Logger("marissa2")
@@ -19,7 +19,8 @@ object Main extends App {
     token,
     Dispatcher(
       Seq(
-        Selfie.selfie
+        (m:Message) => Selfie.selfie(m),
+        Ping.ping
       )
     ).dispatch
   )
