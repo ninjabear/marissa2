@@ -1,8 +1,8 @@
-package lib
+package marissa2.lib
 
 import helpers.BaseSpec
 import marissa2.models.Message
-import scalaj.http.{Http, HttpOptions, HttpResponse}
+import scalaj.http.{Http, HttpOptions}
 
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
