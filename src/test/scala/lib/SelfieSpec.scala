@@ -30,7 +30,7 @@ class SelfieSpec extends BaseSpec {
 
     Selfie.selfie(
       dummyMessage("foo", reply),
-      selfie = selfie
+      selfie
     )
   }
 
