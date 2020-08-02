@@ -43,7 +43,7 @@ class SelfieSpec extends BaseSpec {
       urls.size should be > 1
     }
 
-    "the selfies should all be available and respond in <500ms" in {
+    "the selfies should all be available and respond" in {
       val selfies = Selfie.selfies.map {
         url =>
           Future {
@@ -56,7 +56,7 @@ class SelfieSpec extends BaseSpec {
       }
       forAll(selfies) {
         resp => {
-          val url = Await.result(resp, 500 millis)
+          val url = Await.result(resp, Duration.Inf)
           withClue(s"${url}") {
             url.code should equal(200)
           }

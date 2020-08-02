@@ -22,7 +22,7 @@ class DispatcherSpec extends BaseSpec {
       funcs.expects(message).once()
 
       val f: Future[Unit] = Dispatcher(Seq(funcs)).dispatch(mockMessage)
-      Await.ready(f, 100 millis)
+      Await.ready(f, Duration.Inf)
     }
 
     "fail if a future fails" in {
