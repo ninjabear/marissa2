@@ -52,7 +52,7 @@ object Define {
         case Success(definition :: _) => message.reply(definition.description)
         case Success(_) => message.reply(notARealWord)
         case Failure(exception) =>
-          logger.error("failed to grok '$queryText'", exception)
+          logger.error(s"failed to grok '$queryText'", exception)
           message.reply(notARealWord)
       }
     }

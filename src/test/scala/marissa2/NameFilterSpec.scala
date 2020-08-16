@@ -3,6 +3,8 @@ package marissa2
 import helpers.BaseSpec
 import marissa2.models.Message
 
+import scala.language.postfixOps
+
 class NameFilterSpec extends BaseSpec {
 
   val filterName: String = "marissa"
@@ -36,6 +38,14 @@ class NameFilterSpec extends BaseSpec {
       f expects (m) once
 
       NameFilter(f)(withMessageTransformed(m, (t)=>{s"${filterName}                   $t"}))
+    }
+
+    "leave non leading whitespace alone" in {
+      val m = Message(None, "foo bar foo", noReply)
+      val f = mockFunction[Message, Unit]
+      f expects (m) once
+
+      NameFilter(f)(withName(m))
     }
 
   }

@@ -10,7 +10,7 @@ object NameFilter {
 
   def apply(message: (Message => Unit)): (Message) => Unit = (m) => {
     name.findFirstMatchIn(m.contents) match {
-      case Some(name) => message(m.copy(contents = m.contents.replaceFirst(name+" ","").replaceFirst("\\s+","")))
+      case Some(name) => message(m.copy(contents = m.contents.replaceFirst(name+" ","").replaceFirst("^\\s+","")))
       case None => ()
     }
   }
