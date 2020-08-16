@@ -40,7 +40,10 @@ object Define {
 
   def apply(message:Message, get: (String) => Try[String] = get): Unit = {
     if (message.contents.startsWith("define")) {
+      logger.debug("logger contains define")
+      logger.debug(message.contents)
       val queryText = message.contents.replaceFirst("define\\s+","")
+      logger.debug(queryText)
       val notARealWord = s"Sorry.. I don't think $queryText is a real word."
 
       get(
