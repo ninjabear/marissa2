@@ -15,6 +15,7 @@ lazy val root = (project in file("."))
       scalaLogging,
       discord4j,
       scalaj,
+      argonaut,
       scalaTest % Test,
       scalaMock % Test
     )

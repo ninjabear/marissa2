@@ -7,4 +7,5 @@ object Dependencies {
   lazy val scalaLogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2"
   lazy val discord4j = "com.discord4j" % "discord4j-core" % "3.0.14"
   lazy val scalaj = "org.scalaj" %% "scalaj-http" % "2.4.2"
+  lazy val argonaut = "io.argonaut" %% "argonaut" % "6.2.2"
 }

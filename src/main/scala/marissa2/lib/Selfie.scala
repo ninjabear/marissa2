@@ -1,4 +1,4 @@
-package lib
+package marissa2.lib
 
 import marissa2.models.Message
 

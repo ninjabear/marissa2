@@ -1,7 +1,7 @@
 package marissa2
 
 import com.typesafe.scalalogging.Logger
-import lib.{Ping, Selfie}
+import marissa2.lib.{Define, Ping, Selfie}
 import marissa2.models.Message
 
 object Main extends App {
@@ -21,7 +21,8 @@ object Main extends App {
     Dispatcher(
       Seq(
         Selfie.selfie(_:Message),
-        Ping.ping(_:Message)
+        Ping.ping(_:Message),
+        Define(_:Message)
       ) map (NameFilter(_))
     ).dispatch
   )
