@@ -49,7 +49,7 @@ object Define {
       get(
         "http://api.urbandictionary.com/v0/define?term=" + URLEncoder.encode(queryText, "UTF-8")
       ).flatMap(parseResult) match {
-        case Success(definition :: _) => message.reply(definition.description)
+        case Success(definition :: _) => message.reply(definition.description.replaceAll("[\\[\\]]", "*"))
         case Success(_) => message.reply(notARealWord)
         case Failure(exception) =>
           logger.error(s"failed to grok '$queryText'", exception)

@@ -45,7 +45,7 @@ class DefineSpec extends BaseSpec {
 
     "return the top response" in {
       val reply = mockFunction[String,Unit]
-      reply expects ("[The Foo] were a species that terrorized the earth for many [eons], until [the Foo Fighters] appeared, and drove the species to extinction.")
+      reply expects ("*The Foo* were a species that terrorized the earth for many *eons*, until *the Foo Fighters* appeared, and drove the species to extinction.")
       Define(Message(None, "define foo", reply), goodResp)
     }
 
