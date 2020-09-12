@@ -6,7 +6,6 @@ import scalaj.http.{Http, HttpOptions}
 
 import scala.util.Try
 
-
 class DuckDuckGoSpec extends BaseSpec {
 
   "the search function" should {
@@ -33,6 +32,20 @@ class DuckDuckGoSpec extends BaseSpec {
         resp.contentType.get should startWith ("image/")
       }
       DuckDuckGoSearch.searchImages(Message(None, "image me kirk", reply))
+    }
+
+    "return an url that is  without the me" in {
+      def reply(url:String) = {
+        val resp = Http(url)
+          .method("HEAD")
+          .option(HttpOptions
+            .followRedirects(true)
+          ).asString
+
+        resp.is2xx should be (true)
+        resp.contentType.get should startWith ("image/")
+      }
+      DuckDuckGoSearch.searchImages(Message(None, "image kirk", reply))
     }
 
   }

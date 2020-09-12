@@ -10,7 +10,7 @@ object DuckDuckGoSearch {
 
   private val findNuggie: Regex = """.*vqd=([\d-]+)&.*""".r
   private val imageGrok = """"image"\s*:\s*"([^"]+)"""".r
-  private val hasImageKeywords = """.*image\s+(me)?\s+(.*)""".r
+  private val hasImageKeywords = """.*image(\s+me)?\s+(.*)""".r
 
   private def ddGoSearch(keywords: String): List[String] = {
     val url = "https://duckduckgo.com/"
