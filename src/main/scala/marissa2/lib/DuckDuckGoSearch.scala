@@ -62,6 +62,8 @@ object DuckDuckGoSearch {
         val results = ddGoSearch(keywords)
         if (results.nonEmpty) {
           m.reply(Random.shuffle(results.take(5)).head)
+        } else {
+          m.reply("I did a look but I do not never did find anything")
         }
       }
       case _ =>
