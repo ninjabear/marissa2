@@ -1,7 +1,7 @@
 package marissa2
 
 import com.typesafe.scalalogging.Logger
-import marissa2.lib.{Define, Ping, Selfie}
+import marissa2.lib.{Define, DuckDuckGoSearch, Ping, Selfie}
 import marissa2.models.Message
 
 object Main extends App {
@@ -22,7 +22,8 @@ object Main extends App {
       Seq(
         Selfie.selfie(_:Message),
         Ping.ping(_:Message),
-        Define(_:Message)
+        Define(_:Message),
+        DuckDuckGoSearch.searchImages(_:Message),
       ) map (NameFilter(_))
     ).dispatch
   )
