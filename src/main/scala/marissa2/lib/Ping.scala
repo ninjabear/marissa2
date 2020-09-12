@@ -6,7 +6,7 @@ object Ping {
 
   def ping(m: Message): Unit = {
     if (m.contents.startsWith("ping"))
-      m.reply("pong")
+      m.reply("pong *PONG* **pong**")
   }
 
 }

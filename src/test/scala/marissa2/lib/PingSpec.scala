@@ -5,11 +5,13 @@ import marissa2.models.Message
 
 class PingSpec extends BaseSpec {
 
+  val expectedReply = """pong *PONG* **pong**"""
+
   "ping" should {
 
     "reply pong" in {
       val reply = mockFunction[String, Unit]
-      reply expects "pong"
+      reply expects expectedReply
       Ping.ping(Message(None, "ping", reply))
     }
 
